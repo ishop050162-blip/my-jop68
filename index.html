@@ -37,21 +37,49 @@ ul li a:hover:not(.active) {
 ul li a.active {
   background-color: #04AA6D;
 }
+ #frameBox {margin-left: 100px;
+            width: 80%;
+            height: 80vh;
+            margin-top: 50px;
+            display: block;
+            border: 1px solid #ccc;
+          }
 </style>
 </head>
 <body>
 
+  
+
 <ul>
   <li><a class="active" href="book1-1.html">Home</a></li>
-  <li><a href="wed6.html">wed6</a></li>
-  <li><a href="wed5.html">wed5</a></li>
-  <li><a href="wed3.html">wed3</a></li>
-  <li><a href="teststyle9.html">teststyle9</a></li>
-  <li><a href="tsetstyle7.html">tsetstyle7</a></li>
-  <li><a href="testStyle6.html">tsetstyle6</a></li>
-  <li><a href="Music.html">Music</a></li>
-  <li><a href="jop6-1-1.html">jop6-1-1</a></li>
-  <li><a href="ggg.html">ggg</a></li>
+  <li><a class="openPage" href="wed6.html">wed6</a></li>
+  <li><a class="openPage" href="wed5.html">wed5</a></li>
+  <li><a class="openPage" href="wed3.html">wed3</a></li>
+  <li><a class="openPage" href="teststyle9.html">teststyle9</a></li>
+  <li><a class="openPage" href="tsetstyle7.html">tsetstyle7</a></li>
+  <li><a class="openPage" href="testStyle6.html">tsetstyle6</a></li>
+  <li><a class="openPage" href="Music.html">Music</a></li>
+  <li><a class="openPage" href="jop6-1-1.html">jop6-1-1</a></li>
+  <li><a class="openPage" href="ggg.html">ggg</a></li>
+  <li><a class="openPage" href="myHome.html">myHome</a></li>
+  <li><a class="openPage" href="test34.html">test34</a></li>
 </ul>
+
+<br>
+<iframe id="frameBox" sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-modals"
+        title="แสดงหน้าเว็บ"></iframe>
+
+    <script>
+        
+        const links = document.querySelectorAll(".openPage");
+
+        links.forEach(link => {
+            link.addEventListener("click", function (e) {
+                e.preventDefault(); 
+                document.getElementById("frameBox").src = this.href; 
+            });
+        });
+
+</script>
 </body>
 </html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>music</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Charm:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(36, 2, 2);
+        }
+        #img1 {
+            border:6px double rgb(73, 12, 12);
+            border-radius: 20px;
+            box-shadow: 10px;
+        }
+
+        #a1 {
+            font-family: "Pinyon Script";
+            color: #e7b5b5;
+            text-align: center;
+            background-color: rgb(78, 25, 25) ; width: 300px; border-radius: 20px;
+        }
+        h2 {
+            background-color: rgb(78, 25, 25) ;
+            
+            border-radius: 20px ; 
+            position: fixed;
+            bottom: 0px;
+            right: 20px;
+            color: #e7b5b5;
+            font-size: 18px;
+            opacity: 0.7;
+
+        }
+          #lyrics {
+            color: #e7b5b5;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 1.2s ease;
+  }
+
+  .line {
+    text-align: center;
+    background-color: rgb(78, 25, 25) ;
+    width: 300px; 
+    border-radius: 20px ; 
+    font-family: "Pinyon Script";
+    font-size: 30px;
+    opacity: 0;
+    margin: 10px auto;
+    transition: opacity 1s ease;
+  }
+
+  .show {
+    opacity: 1;
+  }
+
+  .fade-out {
+    opacity: 0;
+  }
+    </style>
+</head>
+<body>
+   <center> <img id="img1" src="/images/20250421-PAGEONE-Multo-FI-1.jpg" width="700px" height="500px"></center>
+    <center><h1 id="a1">Multo - Cup of Joe</h1></center>
+    <h2>68424201009</h2>
+   <div id="lyrics"></div>
+
+<script>
+const verses  = [
+  [
+    "Pumikit na muna",
+    "At baka sakaling",
+    "Namamalikmata lang"
+  ],
+  [
+    "Ba’t nababahala",
+    "‘Di ba’t ako’y mag-isa",
+    "Kala ko’y payapa",
+    "Boses mo’y tumatawag pa"
+  ],
+  [
+    "Binaon naman na ang lahat",
+    "Tinakpan naman na ‘king sugat",
+    "Ngunit ba’t ba andito pa rin",
+    "Hirap na ‘kong intindihin" 
+    ],
+    [
+    "Tanging panalangin",
+     "Lubayan na sana",
+     "Dahil sa bawat tingin",
+     "Mukha mo’y nakikita"
+     ],
+     ["Kahit sa’n man mapunta ay",
+        "Anino mo’y kumakapit sa ‘king kamay",
+        "Ako ay dahan-dahang",
+        "Nililibing nang buhay pa"
+     ],
+     [
+        "Hindi na makalaya",
+        "Dinadalaw mo ‘ko bawat gabi",
+        "Wala mang nakikita",
+        "Haplos mo’y ramdam pa rin sa dilim"
+     ],
+     [
+        "Hindi na nananaginip",
+        "Hindi na ma-makagising",
+        "Pasindi na ng ilaw",
+        "Minumulto na ‘ko ng damdamin ko"
+     ],
+     [
+        "‘Di mo ba ako lilisanin",
+        "‘Di pa ba sapat pagpapahirop sa ‘kin",
+        "‘Di na ba ma-mamamayapa",
+        "‘Di na ba ma-mamamayapa"
+     ],
+     ["Hindi na makalaya ",
+     "Dinadalaw mo ‘ko bawat gabi",
+      "Wala mang nakikita",
+      "Haplos mo’y ramdam pa rin sa dilim"
+],
+["Hindi na nananaginip",
+ "Hindi na ma-makagising",
+  "Pasindi na ng ilaw",
+   "Minumulto na ‘ko ng damdamin ko",
+    "Ng damdamin ko"
+],
+["‘Di mo ba ako lilisanin",
+"(Makalaya)",
+ "‘Di pa ba sapat pagpapahirap sa’kin",
+  "(Dinadalaw mo ‘ko bawat gabi)",
+   "‘Di na ba ma-mamamayapa",
+    "(Wala mang nakikita)",
+    "‘Di na ba ma-mamamayapa",
+    "(Haplos mo’y ramdam pa rin sa dilim)"
+],
+]
+    const container = document.getElementById("lyrics");
+let verseIndex = 0;
+let lineIndex = 0;
+
+function showVerse() {
+  container.innerHTML = "";
+  lineIndex = 0;
+
+  verses[verseIndex].forEach(text => {
+    const div = document.createElement("div");
+    div.className = "line";
+    div.textContent = text;
+    container.appendChild(div);
+  });
+
+  const lines = document.querySelectorAll(".line");
+
+  function showLine() {
+    if (lineIndex < lines.length) {
+      lines[lineIndex].classList.add("show");
+      lineIndex++;
+      setTimeout(showLine, 1500);
+    } else {
+      setTimeout(nextVerse, 1900);
+    }
+  }
+
+  showLine();
+}
+
+function nextVerse() {
+  verseIndex++;
+  if (verseIndex < verses.length) {
+    showVerse();
+  }
+}
+
+showVerse();
+</script>
+
+</body>
+</html>

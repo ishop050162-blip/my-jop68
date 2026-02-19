@@ -1,0 +1,27 @@
+/*ตกแต่งcssแบบตัวแยก*/
+h1 {
+    color: aqua;
+}
+p{
+    color: blue;
+    background-color: aqua;
+}
+body {
+    background-color: blanchedalmond;
+}
+/*ใช้#ในการนำcss*/
+#a1 {
+    width: 60%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(96, 96, 9);
+}
+.link1 { 
+    background-color: rgb(194, 121, 24);
+    width: 20%;
+
+}
+.link2 {
+     background-color: rgb(24, 194, 75);
+    width: 20%;
+
+}

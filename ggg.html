@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>แสดงทีละท่อน</title>
+
+<style>
+  body {
+    background: #0f0f0f;
+    color: white;
+    font-size: 22px;
+    font-family: sans-serif;
+    padding: 40px;
+  }
+
+  .line {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    margin-bottom: 12px;
+  }
+
+  .show {
+    opacity: 1;
+  }
+</style>
+</head>
+
+<body>
+
+<div id="lyrics"></div>
+
+<script>
+const verses = [
+  [
+    "Pumikit na muna",
+    "At baka sakaling",
+    "Namamalikmata lang"
+  ],
+  [
+    "Ba’t nababahala",
+    "‘Di ba’t ako’y mag-isa",
+    "Kala ko’y payapa"
+  ],
+  [
+    "Boses mo’y tumatawag pa",
+    "Binaon naman na ang lahat",
+    "Tinakpan naman na ‘king sugat"
+  ]
+];
+
+const container = document.getElementById("lyrics");
+let verseIndex = 0;
+let lineIndex = 0;
+
+function showVerse() {
+  container.innerHTML = "";
+  lineIndex = 0;
+
+  verses[verseIndex].forEach(text => {
+    const div = document.createElement("div");
+    div.className = "line";
+    div.textContent = text;
+    container.appendChild(div);
+  });
+
+  const lines = document.querySelectorAll(".line");
+
+  function showLine() {
+    if (lineIndex < lines.length) {
+      lines[lineIndex].classList.add("show");
+      lineIndex++;
+      setTimeout(showLine, 1500); // เวลาระหว่างบรรทัด
+    } else {
+      setTimeout(nextVerse, 2000); // เวลาพักก่อนเปลี่ยนท่อน
+    }
+  }
+
+  showLine();
+}
+
+function nextVerse() {
+  verseIndex++;
+  if (verseIndex < verses.length) {
+    showVerse();
+  }
+}
+
+showVerse();
+</script>
+
+</body>
+</html>

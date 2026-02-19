@@ -1,0 +1,13 @@
+h1,p,img{
+    color: blue;
+    border: 2px solid green;
+    text-align: center;
+    margin: 100px;
+}
+p{
+    margin-top: 100px;
+}
+
+img {
+    margin-right: 50px;
+}
